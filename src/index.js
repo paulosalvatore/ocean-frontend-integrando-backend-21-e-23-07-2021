@@ -53,12 +53,10 @@ const lista = [
 ];
 
 function Item(props) {
-    const indice = props.indice;
-
-    const item = lista[indice];
+    const item = props.item;
 
     return (
-        <a href={"/visualizar/" + indice}>
+        <a href={"/visualizar/" + item._id}>
             <div className="item">
                 <h1 className="item__title">{item.nome}</h1>
                 <img src={item.imagemUrl} alt={item.nome} width="200" />
@@ -112,7 +110,7 @@ function Lista() {
     return (
         <div className="lista">
             {listaResultadoApi.map((item, index) => (
-                <Item indice={index} key={index} />
+                <Item item={item} key={index} />
             ))}
         </div>
     );
