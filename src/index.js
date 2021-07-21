@@ -77,7 +77,9 @@ function Lista() {
     useEffect(() => {
         console.log({ listaResultadoApi });
 
-        obterResultado();
+        if (!listaResultadoApi) {
+            obterResultado();
+        }
     });
 
     // Declaramos a função para obter resultados
@@ -99,11 +101,17 @@ function Lista() {
         const dados = await resultado.json();
 
         console.log({ dados });
+
+        atualizarListaResultadoApi(dados);
     };
+
+    if (!listaResultadoApi) {
+        return <div>Carregando...</div>;
+    }
 
     return (
         <div className="lista">
-            {lista.map((item, index) => (
+            {listaResultadoApi.map((item, index) => (
                 <Item indice={index} key={index} />
             ))}
         </div>
