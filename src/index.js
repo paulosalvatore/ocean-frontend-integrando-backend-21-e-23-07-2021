@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import "./index.css";
@@ -70,9 +70,21 @@ function Item(props) {
 function Lista() {
     console.log("Lista carregada.");
 
+    // useState
+    const [listaResultadoApi, atualizarListaResultadoApi] = useState("");
+
+    // useEffect
+    useEffect(() => {
+        console.log({ listaResultadoApi });
+
+        obterResultado();
+    });
+
+    // Declaramos a função para obter resultados
     const obterResultado = async () => {
         console.log("Obter resultado");
 
+        // Fazemos a requisição no Backend
         const resultado = await fetch(
             "https://backend-flexivel.herokuapp.com",
             {
@@ -81,6 +93,12 @@ function Lista() {
                 }),
             }
         );
+
+        console.log({ resultado });
+
+        const dados = await resultado.json();
+
+        console.log({ dados });
     };
 
     return (
