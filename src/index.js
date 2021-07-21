@@ -68,6 +68,21 @@ function Item(props) {
 }
 
 function Lista() {
+    console.log("Lista carregada.");
+
+    const obterResultado = async () => {
+        console.log("Obter resultado");
+
+        const resultado = await fetch(
+            "https://backend-flexivel.herokuapp.com",
+            {
+                headers: new Headers({
+                    Authorization: "profpaulo.salvatore@gmail.com",
+                }),
+            }
+        );
+    };
+
     return (
         <div className="lista">
             {lista.map((item, index) => (
