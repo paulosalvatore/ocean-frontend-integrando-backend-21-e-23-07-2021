@@ -104,9 +104,30 @@ function ListarItens() {
 }
 
 function VisualizarItem(props) {
+    const id = props.match.params.id;
+
+    /*
+    useState e useEffect
+    Fazer uma nova requisição
+    Usar o fetch
+    async/await
+    */
+
+    const [item, setItem] = useState("");
+
+    useEffect(() => {
+        if (!item) {
+            getItemData();
+        }
+    });
+
+    const getItemData = async () => {
+        console.log("Get Item Data", id);
+    };
+
     return (
         <div>
-            <Item indice={props.match.params.id} />
+            <Item item={item} />
         </div>
     );
 }
