@@ -13,45 +13,6 @@ Update -> Formulário de edição
 Delete -> Remover um item específico
 */
 
-// Read All
-// Precisa dos dados que serão exibidos
-// A estrutura desses dados precisa possuir 'Nome' e 'URL da Imagem'
-
-// Decidam qual será o tema da sua aplicação
-// O meu será de Raças de Cachorro
-
-const lista = [
-    {
-        id: 1,
-        nome: "Pinscher",
-        imagemUrl: "https://pbs.twimg.com/media/Da3FmbSWkAEuwUJ.jpg",
-    },
-    {
-        id: 2,
-        nome: "Golden Retriever",
-        imagemUrl:
-            "https://f.i.uol.com.br/fotografia/2017/10/27/150912457859f369e28eaa5_1509124578_3x2_md.jpg",
-    },
-    {
-        id: 3,
-        nome: "Labrador",
-        imagemUrl:
-            "https://www.clubeparacachorros.com.br/wp-content/uploads/2014/07/labrador-amarelo.jpg",
-    },
-    {
-        id: 4,
-        nome: "Yorkshire",
-        imagemUrl:
-            "https://www.petlove.com.br/images/breeds/192471/profile/original/yorkshire-p.jpg?1532539683",
-    },
-    {
-        id: 5,
-        nome: "Husky Siberiano",
-        imagemUrl:
-            "https://www.petlove.com.br/images/breeds/193082/profile/original/husky_siberian-p.jpg?1532539123",
-    },
-];
-
 function Item(props) {
     const item = props.item;
 
