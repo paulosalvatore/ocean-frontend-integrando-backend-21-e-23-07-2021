@@ -146,21 +146,59 @@ function VisualizarItem(props) {
 }
 
 function AdicionarItem() {
-    const handleSubmit = event => {
+    const handleSubmit = async event => {
         event.preventDefault();
 
-        console.log(event.target.value);
+        const nome = event.target.nome.value;
+        const imagemUrl = event.target.imagemUrl.value;
+
+        const dados = {
+            nome,
+            imagemUrl,
+        };
+
+        const dadosEmJson = JSON.stringify(dados);
+
+        console.log(dados, dadosEmJson);
+
+        /*
+        fetchão?
+        async/await
+        route nova?
+        Como fazer ser verbo POST? Pq até então a gente só tinha GET
+        Já temos o JSON. passar "dados" na URL
+        Informar Headers
+        Validar se deu bom ou se deu ruim
+        */
+
+        const resultado = await fetch(
+            "https://backend-flexivel.herokuapp.com/",
+            {
+                headers: new Headers({
+                    Authorization: "profpaulo.salvatore@gmail.com",
+                    "Content-Type": "application/json",
+                }),
+                method: "POST",
+                body: dadosEmJson,
+            }
+        );
+
+        console.log(resultado);
+
+        const jsonResultado = await resultado.json();
+
+        console.log(jsonResultado);
     };
 
     return (
         <div>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="nome">Nome:</label>
-                <input type="text" id="nome" />
+                <input type="text" id="nome" name="nome" />
                 <br />
 
                 <label htmlFor="imagemUrl">URL da Imagem:</label>
-                <input type="text" id="imagemUrl" />
+                <input type="text" id="imagemUrl" name="imagemUrl" />
                 <br />
 
                 <input type="submit" value="Adicionar" />
