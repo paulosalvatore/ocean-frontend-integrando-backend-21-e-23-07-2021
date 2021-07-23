@@ -87,6 +87,8 @@ function Header() {
                     width="300"
                 />
             </a>
+
+            <a href="/adicionar">Adicionar item</a>
         </header>
     );
 }
@@ -145,7 +147,7 @@ function VisualizarItem(props) {
     );
 }
 
-function AdicionarItem() {
+function AdicionarItem(props) {
     const handleSubmit = async event => {
         event.preventDefault();
 
@@ -188,6 +190,8 @@ function AdicionarItem() {
         const jsonResultado = await resultado.json();
 
         console.log(jsonResultado);
+
+        props.history.push("/visualizar/" + jsonResultado._id);
     };
 
     return (
