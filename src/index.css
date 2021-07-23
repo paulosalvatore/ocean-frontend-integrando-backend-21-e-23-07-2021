@@ -22,7 +22,14 @@ body {
 }
 
 .header {
+    align-items: center;
+    display: flex;
     font-size: 28px;
+}
+
+.header a {
+    color: #ffffff;
+    margin: 10px;
 }
 
 .footer {
@@ -53,4 +60,38 @@ body {
     margin-bottom: 10px;
     border-left: 4px solid #2f4d90;
     padding-left: 8px;
+}
+
+.form {
+    padding: 10px;
+    min-height: 80vh;
+}
+
+.form__label {
+    font-weight: bold;
+}
+
+.form__input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.form__submit {
+    width: 100%;
+    background-color: #5083bc;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.form__submit:hover {
+    background-color: #54c4eb;
 }

@@ -196,16 +196,20 @@ function AdicionarItem(props) {
 
     return (
         <div>
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="nome">Nome:</label>
-                <input type="text" id="nome" name="nome" />
+            <form className="form" onSubmit={handleSubmit}>
+                <label htmlFor="nome" className="form__label">Nome:</label>
                 <br />
 
-                <label htmlFor="imagemUrl">URL da Imagem:</label>
-                <input type="text" id="imagemUrl" name="imagemUrl" />
+                <input type="text" id="nome" name="nome" className="form__input" />
                 <br />
 
-                <input type="submit" value="Adicionar" />
+                <label htmlFor="imagemUrl" className="form__label">URL da Imagem:</label>
+                <br />
+
+                <input type="text" id="imagemUrl" name="imagemUrl" className="form__input" />
+                <br />
+
+                <input type="submit" value="Adicionar" className="form__submit" />
             </form>
         </div>
     );
