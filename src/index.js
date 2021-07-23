@@ -123,6 +123,19 @@ function VisualizarItem(props) {
 
     const getItemData = async () => {
         console.log("Get Item Data", id);
+
+        const resultado = await fetch(
+            "https://backend-flexivel.herokuapp.com/" + id,
+            {
+                headers: new Headers({
+                    Authorization: "profpaulo.salvatore@gmail.com",
+                }),
+            }
+        );
+
+        const dados = await resultado.json();
+
+        setItem(dados);
     };
 
     return (
