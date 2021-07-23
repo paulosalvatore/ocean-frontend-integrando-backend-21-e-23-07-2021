@@ -145,6 +145,24 @@ function VisualizarItem(props) {
     );
 }
 
+function AdicionarItem() {
+    return (
+        <div>
+            <form>
+                <label htmlFor="nome">Nome:</label>
+                <input type="text" id="nome" />
+                <br />
+
+                <label htmlFor="imagemUrl">URL da Imagem:</label>
+                <input type="text" id="imagemUrl" />
+                <br />
+
+                <input type="submit" value="Adicionar" />
+            </form>
+        </div>
+    );
+}
+
 function App() {
     return (
         <div className="app">
@@ -153,6 +171,8 @@ function App() {
                 <Route path="/" exact={true} component={ListarItens} />
 
                 <Route path="/visualizar/:id" component={VisualizarItem} />
+
+                <Route path="/adicionar" component={AdicionarItem} />
             </Switch>
             <Footer />
         </div>
